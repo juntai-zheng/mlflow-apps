@@ -86,7 +86,7 @@ The library contains the following apps:
 dnn-regression
 ~~~~~~~~~~~~~~
 
-This app creates and fits a Tensorflow `DNNRegressor`_ model based on
+This app creates and fits a TensorFlow `DNNRegressor`_ model based on
 parquet-formatted input data. Then, the application exports the model to
 a local file and logs the model using MLflow’s APIs. See more info
 `here`_.
