@@ -18,7 +18,7 @@ To run the app with default parameters while in the root directory, run the comm
 
 ::
 
-   mlflow apps/dnn-regression/ -e main -P model-dir="insert/model/save/path" -P train="insert/data/path/" -P test="insert/data/path/" -P hidden-units="10,10" -P label-col="insert.label.col"
+   mlflow run apps/dnn-regression/ -e main -P model-dir="insert/model/save/path" -P train="insert/data/path/" -P test="insert/data/path/" -P hidden-units="10,10" -P label-col="insert.label.col"
 
 .. _DNNRegressor: https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor
 .. _constraints: https://www.tensorflow.org/api_docs/python/tf/Operation#__init__
