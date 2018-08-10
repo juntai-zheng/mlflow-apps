@@ -87,9 +87,9 @@ def train(model_dir, training_pandas_data, test_pandas_data, label_col, feat_col
     mlflow.log_param("num_train_points", len(training_pandas_data[label_col].values))
 
     #Logging the RMSE and r2 scores.
-    mlflow.log_metric("RMSE", test_rmse)
-    mlflow.log_metric("R2_train", r2_train)
-    mlflow.log_metric("R2_test", r2_test)
+    mlflow.log_metric("Test RMSE", test_rmse)
+    mlflow.log_metric("Train R2", r2_train)
+    mlflow.log_metric("Test R2", r2_test)
 
     # Saving TensorFlow model.
     saved_estimator_path = regressor.export_savedmodel(model_dir, 
