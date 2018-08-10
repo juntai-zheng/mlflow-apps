@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from sklearn.metrics import mean_squared_error
 import xgboost as xgb
 import mlflow
 from mlflow import sklearn
@@ -45,13 +46,17 @@ def train(training_pandasData, test_pandasData, label_col, feat_cols, n_trees, m
     # Here we train the model
     xgbr.fit(trainingFeatures, trainingLabels, eval_metric=loss)
 
-    # Calculating the score of the model.
+    # Calculating the scores of the model.
+    test_rmse = mean_squared_error(testLabels, xgbr.predict(testFeatures))**0.5
     r2_score_training = xgbr.score(trainingFeatures, trainingLabels)
     r2_score_test = xgbr.score(testFeatures, testLabels)
+
+    print("Test RMSE:", test_rmse)
     print("Training set score:", r2_score_training)
     print("Test set score:", r2_score_test)
 
-    # Logging the r2 score for both sets.
+    # Logging the RMSE and r2 scores.
+    mlflow.log_metric("RMSE", test_rmse)
     mlflow.log_metric("R2_train", r2_score_training)
     mlflow.log_metric("R2_test", r2_score_test)
 
