@@ -49,7 +49,7 @@ in the run ID from the previous step):
 The output of this command will be 20 numbers, which are predictions of
 20 diamonds’ prices based on their features (located in
 ``$temp/diamonds.csv``). You can compare these numbers to the actual
-prices of the diamonds, which are viewable via the command
+prices of the diamonds, which are viewable via
 
 ::
 
