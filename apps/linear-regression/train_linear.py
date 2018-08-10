@@ -51,9 +51,9 @@ def train(training_pandas_data, test_pandas_data, label_col,
     print("Test set score:", r2_score_test)
 
     #Logging the RMSE and r2 scores.
-    mlflow.log_metric("RMSE", test_rmse)
-    mlflow.log_metric("R2_train", r2_score_training)
-    mlflow.log_metric("R2_test", r2_score_test)
+    mlflow.log_metric("Test RMSE", test_rmse)
+    mlflow.log_metric("Train R2", r2_score_training)
+    mlflow.log_metric("Test R2", r2_score_test)
 
     #Saving the model as an artifact.
     sklearn.log_model(en, "model")
